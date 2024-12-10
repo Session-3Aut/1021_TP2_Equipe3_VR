@@ -7,7 +7,7 @@ public class Node : MonoBehaviour
 {
     [SerializeField] private InputActionReference buttonSelect;
     [SerializeField] private Color hoverColor;
-    [SerializeField] private Color defaultColor;
+    private Color defaultColor;
 
     private GameObject turret;
     private Renderer rend;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouvementEnnemies : MonoBehaviour
 {
-    [SerializeField] private Transform pointA;
+    private Transform pointA;
     public float speed = 1f;
 
     private Transform currentTarget;
@@ -12,6 +12,23 @@ public class MouvementEnnemies : MonoBehaviour
     private enum MovementState { MovingToPointA };
     private MovementState currentState = MovementState.MovingToPointA;
 
+
+  void Start()
+    {
+        // Automatically find the object named "PointA" in the scene
+        if (pointA == null)
+        {
+            GameObject foundPointA = GameObject.Find("PointA");
+            if (foundPointA != null)
+            {
+                pointA = foundPointA.transform;
+            }
+            else
+            {
+                Debug.LogError("No object named 'PointA' found in the scene!");
+            }
+        }
+    }
     void Update()
     {
         switch (currentState)
