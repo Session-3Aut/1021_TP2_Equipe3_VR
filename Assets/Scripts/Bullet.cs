@@ -9,7 +9,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Transform partToRotate;
     
     [SerializeField] private float turnSpeed = 10f;
-    [SerializeField] private GameObject impactEffect;
+
+    [SerializeField] private InfosJoueur infosJoueur;
 
     public void Seek(Transform _target){
         target = _target;
@@ -38,10 +39,41 @@ public class Bullet : MonoBehaviour
 
     void HitTarget(){
 
-        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 2f);
-
+        DropPoints();
         Destroy(target.gameObject);
         Destroy(gameObject);
+    }
+
+    public void DropPoints()
+    {
+        
+        float randomValue = Random.Range(0f, 100f);
+        int pointsToAdd = 0;
+
+  
+        if (randomValue < 50f) 
+        {
+            pointsToAdd = Random.Range(1, 3); 
+        }
+        else if (randomValue < 85f) 
+        {
+            pointsToAdd = Random.Range(5, 7); 
+        }
+        else if (randomValue < 95f)
+        {
+            pointsToAdd = Random.Range(12, 14); 
+        }
+        else if (randomValue < 99f) 
+        {
+            pointsToAdd = Random.Range(20, 21); 
+        }
+        else 
+        {
+            pointsToAdd = 35; 
+        }
+
+        infosJoueur.nbPoints += pointsToAdd;
+
+        Debug.Log($"Dropped Points: {pointsToAdd}. Total Points: {infosJoueur.nbPoints}");
     }
 }

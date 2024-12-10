@@ -1579,9 +1579,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "OpenCloseMenu",
+                    "name": "RightPrimaryClick",
                     "type": "Button",
                     "id": "269ddade-5da7-49e5-ada8-4caa6e4bb64f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Abutton",
+                    "type": "Button",
+                    "id": "8621543c-3de9-41f7-98d9-7beff6e6360d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1761,7 +1770,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "OpenCloseMenu",
+                    "action": "RightPrimaryClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11375e6c-0964-4e8f-9f01-eb73dcc2d355",
+                    "path": "<XRController>{RightHand}/{MenuButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Abutton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
