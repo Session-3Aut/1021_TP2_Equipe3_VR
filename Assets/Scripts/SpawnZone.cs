@@ -17,23 +17,34 @@ public class SpawnZone : MonoBehaviour
 
     float _randomTimeX;
 
+     [SerializeField]private float currentTime;
+     [SerializeField]private float delay = 1.5f;
+
     void Start()
     {
         _randomTimer = Random.Range(1,3);
 
         _randomTimeX = Random.Range(2,4);
 
-        
-        
-
-
-        InvokeRepeating("SpawnCube",0f, _timer);
     }
 
     // Update is called once per frame
     void Update()
     {
         _randomPrefabs = Random.Range(0, 3);
+        currentTime += Time.deltaTime;
+        _timer += Time.deltaTime;
+
+        if(currentTime > 59f){
+            delay =.9f;
+        }
+        else if(currentTime > 89f){
+            delay = 0.2f;
+        }
+        if(_timer > delay){
+            SpawnCube();
+            _timer = 0;
+        }
     }
     void SpawnCube(){
         //GameObject instantiated = Instantiate(_prefabs);

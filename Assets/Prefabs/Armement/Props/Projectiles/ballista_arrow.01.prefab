@@ -118,6 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a66fb9c579550944a281edd15501a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
+  speed: 150
   partToRotate: {fileID: 4869291260722140217}
   turnSpeed: 10
+  infosJoueur: {fileID: 11400000, guid: 3aa8f60eb24c9ec47b99a0a4f0d9f63d, type: 2}
+  impactEffect: {fileID: 7226583673155636401, guid: a2ab56839e1c9504ea9d141e95d0b16b,
+    type: 3}

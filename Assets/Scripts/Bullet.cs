@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float turnSpeed = 10f;
 
     [SerializeField] private InfosJoueur infosJoueur;
+    [SerializeField] private GameObject impactEffect;
 
     public void Seek(Transform _target){
         target = _target;
@@ -40,6 +41,10 @@ public class Bullet : MonoBehaviour
     void HitTarget(){
 
         DropPoints();
+
+        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effectIns, 1f);
+
         Destroy(target.gameObject);
         Destroy(gameObject);
     }
