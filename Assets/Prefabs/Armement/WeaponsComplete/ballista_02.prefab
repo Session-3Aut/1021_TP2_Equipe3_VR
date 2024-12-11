@@ -128,6 +128,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1678360869550186552, guid: cd75cca0a81119947b532c74fc0b50c3,
     type: 3}
   firePoint: {fileID: 5766277935411608176}
+  soundClips:
+  - {fileID: 8300000, guid: 65cfd3531f901fc4b824ac4a86e02322, type: 3}
+  - {fileID: 8300000, guid: 2941808ea2a46d6489568b1b5e448e77, type: 3}
 --- !u!1 &4476638735089189522
 GameObject:
   m_ObjectHideFlags: 0

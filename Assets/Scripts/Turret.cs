@@ -22,9 +22,16 @@ public class Turret : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
 
+    [SerializeField] private AudioClip[] soundClips; 
+
+      [SerializeField] private float lowerVolume = 0.1f;
+    private AudioSource audioSource;  
+
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = lowerVolume;
     }
 
 
@@ -73,7 +80,7 @@ public class Turret : MonoBehaviour
     void Shoot(){
         GameObject bulletGO =  (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-
+        PlayRandomSoundClip();
         if(bullet != null){
             bullet.Seek(target);
         }
@@ -83,5 +90,15 @@ public class Turret : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
 
+    }
+
+    void PlayRandomSoundClip()
+    {
+        if (soundClips.Length > 0)
+        {
+            int randomIndex = Random.Range(0, soundClips.Length);
+
+            audioSource.PlayOneShot(soundClips[randomIndex]);
+        }
     }
 }
