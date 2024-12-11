@@ -13,36 +13,40 @@ public class Shop : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
-    public void PurcahseArtilleurTurret(){
+    public void PurcahseLevel1Turret(){
         if(infosJoueur.nbPoints < 99){
             Debug.Log("Not enough Money");
             return;
         }
         Debug.Log("StandardTurret");
         buildManager.SetTurretToBuild(buildManager.artilleurPrefab);
+        infosJoueur.nbPoints -= 100;
     }
-    public void PurcahseCatapultorTurret(){
+    public void PurcahseLevel2Turret(){
         if(infosJoueur.nbPoints < 229){
             Debug.Log("Not enough Money");
             return;
         }
         Debug.Log("AnotherTurret");
         buildManager.SetTurretToBuild(buildManager.catapultorPrefab);
+        infosJoueur.nbPoints -= 230;
     }
-    public void PurcahseLanceAracaneTurret(){
+    public void PurcahseLevel3Turret(){
         if(infosJoueur.nbPoints < 299){
             Debug.Log("Not enough Money");
             return;
         }
         Debug.Log("AnotherTurret");
         buildManager.SetTurretToBuild(buildManager.lanceAracanePrefab);
+        infosJoueur.nbPoints -= 300;
     }
-    public void PurcahseEcraseurTurret(){
+    public void PurcahseLevel4Turret(){
         if(infosJoueur.nbPoints < 499){
             Debug.Log("Not enough Money");
             return;
         }
         Debug.Log("AnotherTurret");
         buildManager.SetTurretToBuild(buildManager.ecraseurPrefab);
+        infosJoueur.nbPoints -= 500;
     }
 }
