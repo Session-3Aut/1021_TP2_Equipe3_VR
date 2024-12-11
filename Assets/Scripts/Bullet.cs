@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
         Destroy(effectIns, 1f);
 
         Destroy(target.gameObject);
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 
     public void DropPoints()
@@ -58,27 +58,28 @@ public class Bullet : MonoBehaviour
   
         if (randomValue < 50f) 
         {
-            pointsToAdd = Random.Range(1, 3); 
+            pointsToAdd = Random.Range(2, 6); 
         }
         else if (randomValue < 85f) 
         {
-            pointsToAdd = Random.Range(5, 7); 
+            pointsToAdd = Random.Range(8, 12); 
         }
         else if (randomValue < 95f)
         {
-            pointsToAdd = Random.Range(12, 14); 
+            pointsToAdd = Random.Range(15, 24); 
         }
         else if (randomValue < 99f) 
         {
-            pointsToAdd = Random.Range(20, 21); 
+            pointsToAdd = Random.Range(30, 31); 
         }
         else 
         {
-            pointsToAdd = 35; 
+            pointsToAdd = 45; 
         }
 
         infosJoueur.nbPoints += pointsToAdd;
 
         Debug.Log($"Dropped Points: {pointsToAdd}. Total Points: {infosJoueur.nbPoints}");
     }
+
 }

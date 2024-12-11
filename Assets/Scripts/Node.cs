@@ -91,5 +91,6 @@ public class Node : XRBaseInteractable
 
         // Spawn the turret at the current node with positionOffset
         turret = Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
+        buildManager.turretToBuild = null;
     }
 }

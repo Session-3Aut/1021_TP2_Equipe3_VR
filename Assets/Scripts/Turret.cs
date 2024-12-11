@@ -24,14 +24,19 @@ public class Turret : MonoBehaviour
 
     [SerializeField] private AudioClip[] soundClips; 
 
-      [SerializeField] private float lowerVolume = 0.1f;
+    [SerializeField] private float lowerVolume = 0.08f;
     private AudioSource audioSource;  
 
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.volume = lowerVolume;
+         audioSource.spatialBlend = 1f;
+         audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
+        audioSource.minDistance = 2f;
+        audioSource.maxDistance = 7f;
     }
 
 

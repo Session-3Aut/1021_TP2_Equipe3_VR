@@ -124,3 +124,10 @@ MonoBehaviour:
   infosJoueur: {fileID: 11400000, guid: 3aa8f60eb24c9ec47b99a0a4f0d9f63d, type: 2}
   impactEffect: {fileID: 7226583673155636401, guid: a2ab56839e1c9504ea9d141e95d0b16b,
     type: 3}
+  soundClips:
+  - {fileID: 8300000, guid: 14531d17d0d4a904c8adf5de2619d27d, type: 3}
+  - {fileID: 8300000, guid: 7c80fad99b425c94baa32eafdfe68eaf, type: 3}
+  - {fileID: 8300000, guid: 0730e2ee34ac0fe428b60a719ceb32ac, type: 3}
+  - {fileID: 8300000, guid: 0910be5175100e440946d1ec6a517da1, type: 3}
+  - {fileID: 8300000, guid: ea5440a4691d88b41840eed4da03cc06, type: 3}
+  lowerVolume: 0.1

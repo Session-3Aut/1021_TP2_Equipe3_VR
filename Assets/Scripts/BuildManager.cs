@@ -10,7 +10,7 @@ public class BuildManager : MonoBehaviour
     public GameObject lanceAracanePrefab;
     public GameObject ecraseurPrefab;
     
-    private GameObject turretToBuild;
+    public GameObject turretToBuild;
 
 void Awake() {
     if (instance != null && instance != this) {
