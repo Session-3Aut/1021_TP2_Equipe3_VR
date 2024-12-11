@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b808af9071507143a909ca6e212b2e9, type: 3}
   m_Name: UnJoueur
   m_EditorClassIdentifier: 
-  nbPoints: 1500
+  nbPoints: 191

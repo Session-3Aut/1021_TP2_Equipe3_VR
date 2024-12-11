@@ -191,7 +191,15 @@ MonoBehaviour:
   buttonSelect: {fileID: -8958775026624019607, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   hoverColor: {r: 0.107600555, g: 0.23664878, b: 0.735849, a: 0}
+  placementColor: {r: 0.40152425, g: 0.8867924, b: 0.28025985, a: 0}
   positionOffset: {x: 0, y: 0.2, z: 0}
+  gameObjectsToDeactivate:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  soundClip: {fileID: 8300000, guid: a694b8c39a79e954fbcba02d158673c0, type: 3}
+  lowerVolume: 1.5
 --- !u!65 &5416973119266421365
 BoxCollider:
   m_ObjectHideFlags: 0

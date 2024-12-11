@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections.Generic;
 
 public class Node : XRBaseInteractable
 {
     [SerializeField] private InputActionReference buttonSelect; // Input action for selection
     [SerializeField] private Color hoverColor; // Color when hovered
+    [SerializeField] private Color placementColor; // Color when hovered
     [SerializeField] private Vector3 positionOffset; // Offset for turret placement
     private Color defaultColor;
 
@@ -15,8 +17,21 @@ public class Node : XRBaseInteractable
     private static Node activeNode; // Tracks the currently active node
     BuildManager buildManager;
 
+    [SerializeField] private List<GameObject> gameObjectsToDeactivate;
+
+
+    [SerializeField] private AudioClip soundClip; 
+
+    [SerializeField] private float lowerVolume = 1.5f;
+    private AudioSource audioSource;  
  protected  void Start()
 {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = lowerVolume;
+        audioSource.clip = soundClip;
+        audioSource.minDistance = 2f;
+        audioSource.maxDistance = 7f;
+
     base.Awake();
     rend = GetComponent<Renderer>();
     if (rend != null)
@@ -92,5 +107,29 @@ public class Node : XRBaseInteractable
         // Spawn the turret at the current node with positionOffset
         turret = Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
         buildManager.turretToBuild = null;
+        DeactivateAllObjects();
+        ChangeNodeColor();
+        audioSource.PlayOneShot(soundClip);
+    }
+        void DeactivateAllObjects()
+    {
+        
+        foreach (GameObject obj in gameObjectsToDeactivate)
+        {
+            obj.SetActive(false); 
+        }
+    }
+    void ChangeNodeColor(){
+            if (rend != null) 
+    {
+        rend.material.color = defaultColor; // Revert to the default color
+    }
+    }
+    public void ChangePlacementNodeColor(){
+    if (rend != null)
+    {
+        rend.material.color = placementColor; // Set the placement color
+    }
+        Debug.Log("COlor");
     }
 }
